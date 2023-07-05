@@ -10,10 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@rocketseat/eslint-config": "^1.2.0",
     "fastify": "^4.19.2"
   },
   "devDependencies": {
     "@types/node": "^20.3.3",
+    "eslint": "^8.44.0",
     "prisma": "^4.16.2",
     "ts-node": "^10.9.1",
     "tsx": "^3.12.7",
