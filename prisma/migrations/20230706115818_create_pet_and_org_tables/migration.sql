@@ -22,7 +22,7 @@ CREATE TABLE "pets" (
     "energy" "Energy" NOT NULL,
     "independency" "Independency" NOT NULL,
     "environment" "Size" NOT NULL,
-    "orgId" TEXT,
+    "orgId" TEXT NOT NULL,
     "adoptedAt" TIMESTAMP(3),
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
@@ -46,4 +46,4 @@ CREATE TABLE "orgs" (
 );
 
 -- AddForeignKey
-ALTER TABLE "pets" ADD CONSTRAINT "pets_orgId_fkey" FOREIGN KEY ("orgId") REFERENCES "orgs"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "pets" ADD CONSTRAINT "pets_orgId_fkey" FOREIGN KEY ("orgId") REFERENCES "orgs"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

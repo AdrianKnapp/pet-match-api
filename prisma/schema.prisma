@@ -50,11 +50,12 @@ model Pet {
   independency Independency
   environment  Size
 
-  Org   Org?    @relation(fields: [orgId], references: [id])
-  orgId String?
+  org_id String
 
-  adoptedAt DateTime?
-  createdAt DateTime  @default(now())
+  adopted_at DateTime?
+  created_at DateTime  @default(now())
+  Org        Org?      @relation(fields: [orgId], references: [id])
+  orgId      String?
 
   @@map("pets")
 }
@@ -73,7 +74,7 @@ model Org {
 
   pets Pet[]
 
-  createdAt DateTime @default(now())
+  created_at DateTime @default(now())
 
   @@map("orgs")
 }
