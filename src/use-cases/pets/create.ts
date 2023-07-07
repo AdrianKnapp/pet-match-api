@@ -1,7 +1,7 @@
 import { PetsRepository } from '@/repositories/pets-repository'
 import { Pet } from '@prisma/client'
 
-interface CreatePetUseCaseRequest {
+export interface CreatePetUseCaseRequest {
   name: string
   description: string
   images: string[]
@@ -11,6 +11,7 @@ interface CreatePetUseCaseRequest {
   energy: 'medium' | 'lower' | 'low' | 'high' | 'higher'
   independency: 'medium' | 'low' | 'high'
   environment: 'small' | 'medium' | 'large'
+  type: 'dog' | 'cat' | 'other'
   org_id: string
 }
 
@@ -31,18 +32,24 @@ export class CreatePetUseCase {
     energy,
     independency,
     environment,
+    type,
     org_id,
   }: CreatePetUseCaseRequest): Promise<CreatePetUseCaseResponse> {
     const pet = await this.petsRepository.create({
       name,
       description,
-      images,
-      requisites,
       age,
       size,
       energy,
       independency,
       environment,
+      type,
+      images: {
+        set: images,
+      },
+      requisites: {
+        set: requisites,
+      },
       org_id,
     })
 

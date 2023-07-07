@@ -5,7 +5,7 @@ import { randomUUID } from 'crypto'
 export class InMemoryPetsRepository implements PetsRepository {
   public pets: Pet[] = []
 
-  async create(data: Prisma.PetCreateInput) {
+  async create(data: Prisma.PetCreateManyInput) {
     const pet: Pet = {
       id: randomUUID(),
       name: data.name,
@@ -16,7 +16,6 @@ export class InMemoryPetsRepository implements PetsRepository {
       size: data.size,
       energy: data.energy,
       org_id: data.org_id,
-      orgId: data.org_id,
       independency: data.independency,
       environment: data.environment,
       adopted_at: null,

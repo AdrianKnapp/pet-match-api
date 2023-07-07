@@ -37,12 +37,19 @@ enum Independency {
   high
 }
 
+enum Type {
+  dog
+  cat
+  other
+}
+
 model Pet {
   id          String   @id @default(uuid())
   name        String
   description String
   images      String[]
   requisites  String[]
+  type        Type
 
   age          Age
   size         Size
@@ -50,12 +57,11 @@ model Pet {
   independency Independency
   environment  Size
 
-  org_id String
-
   adopted_at DateTime?
   created_at DateTime  @default(now())
-  Org        Org?      @relation(fields: [orgId], references: [id])
-  orgId      String?
+
+  org_id String
+  org    Org    @relation(fields: [org_id], references: [id])
 
   @@map("pets")
 }
