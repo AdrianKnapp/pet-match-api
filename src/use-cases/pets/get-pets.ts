@@ -1,7 +1,15 @@
-import { GetPetsQuery, PetsRepository } from '@/repositories/pets-repository'
+import { PetsRepository } from '@/repositories/pets-repository'
 import { Pet } from '@prisma/client'
 
-export interface GetPetsUseCaseRequest extends GetPetsQuery {}
+export interface GetPetsUseCaseRequest {
+  age?: 'baby' | 'young' | 'adult' | 'senior'
+  size?: 'small' | 'medium' | 'large'
+  energy?: 'medium' | 'lower' | 'low' | 'high' | 'higher'
+  independency?: 'medium' | 'low' | 'high'
+  environment?: 'small' | 'medium' | 'large'
+  type?: 'dog' | 'cat' | 'other'
+  orgId?: string
+}
 
 interface GetPetsUseCaseResponse {
   pets: Pet[]
