@@ -5,13 +5,13 @@ import { GetPetsByCityUseCase } from './get-pets-by-city'
 let petsRepository: InMemoryPetsRepository
 let sut: GetPetsByCityUseCase
 
-describe('Create Pet Use Case', () => {
+describe('Create Pets By City Use Case', () => {
   beforeEach(() => {
     petsRepository = new InMemoryPetsRepository()
     sut = new GetPetsByCityUseCase(petsRepository)
   })
 
-  it('should be able to create a pet', async () => {
+  it('should be able to get pets by city', async () => {
     const pet = await sut.execute({
       latitude: -31.7718528,
       longitude: -52.314112,
