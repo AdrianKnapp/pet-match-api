@@ -36,9 +36,42 @@ export class InMemoryPetsRepository implements PetsRepository {
     return this.pets
   }
 
-  async getPets(pets: GetPetsQuery) {
-    // const pets = this.pets.filter((pet) => {})
+  async getPets(petsQuery: GetPetsQuery) {
+    const petsFiltered = this.pets.filter((pet) => {
+      if (petsQuery.type && petsQuery.type !== pet.type) {
+        return false
+      }
 
-    return this.pets
+      if (petsQuery.age && petsQuery.age !== pet.age) {
+        return false
+      }
+
+      if (petsQuery.size && petsQuery.size !== pet.size) {
+        return false
+      }
+
+      if (petsQuery.energy && petsQuery.energy !== pet.energy) {
+        return false
+      }
+
+      if (
+        petsQuery.independency &&
+        petsQuery.independency !== pet.independency
+      ) {
+        return false
+      }
+
+      if (petsQuery.environment && petsQuery.environment !== pet.environment) {
+        return false
+      }
+
+      if (petsQuery.orgId && petsQuery.orgId !== pet.org_id) {
+        return false
+      }
+
+      return true
+    })
+
+    return petsFiltered
   }
 }
