@@ -33,17 +33,12 @@ export class InMemoryPetsRepository implements PetsRepository {
   }
 
   async getPetsByCity(params: GetPetsByCityParams) {
-    return {
-      pets: this.pets,
-      // TODO: remove this any
-    }
+    return this.pets
   }
 
   async getPets(pets: GetPetsQuery) {
     // const pets = this.pets.filter((pet) => {})
 
-    return {
-      pets: this.pets,
-    }
+    return this.pets
   }
 }

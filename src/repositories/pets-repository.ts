@@ -16,7 +16,7 @@ export interface GetPetsQuery {
 }
 
 export interface PetsRepository {
-  create(data: Prisma.PetCreateInput): Promise<Pet>
+  create(data: Prisma.PetUncheckedCreateInput): Promise<Pet>
   getPetsByCity(params: GetPetsByCityParams): Promise<Pet[]>
   getPets(query: GetPetsQuery): Promise<Pet[]>
 }
