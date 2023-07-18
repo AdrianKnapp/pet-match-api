@@ -49,8 +49,9 @@ model Pet {
   description String
   images      String[]
   requisites  String[]
-  type        Type
+  city        String
 
+  type         Type
   age          Age
   size         Size
   energy       Energy
@@ -74,9 +75,7 @@ model Org {
   phone         String
   password_hash String
 
-  address   String
-  latitude  Decimal
-  longitude Decimal
+  address String
 
   pets Pet[]
 
