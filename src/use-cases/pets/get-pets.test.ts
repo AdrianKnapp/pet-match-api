@@ -13,12 +13,12 @@ describe('Get Pets Use Case', () => {
   })
 
   it('should be able to get pets by query params', async () => {
-    petsRepository.create(fred)
-    petsRepository.create({
+    await petsRepository.create(fred)
+    await petsRepository.create({
       ...fred,
       type: 'cat',
     })
-    petsRepository.create({
+    await petsRepository.create({
       ...fred,
       age: 'baby',
     })
