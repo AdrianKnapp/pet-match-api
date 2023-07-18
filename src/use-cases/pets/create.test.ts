@@ -13,8 +13,8 @@ describe('Create Pet Use Case', () => {
   })
 
   it('should be able to create a pet', async () => {
-    const pet = await sut.execute(fred)
+    const { pet } = await sut.execute(fred)
 
-    expect(pet).toBeDefined()
+    expect(pet.name).toEqual(fred.name)
   })
 })
