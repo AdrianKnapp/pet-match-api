@@ -1,7 +1,7 @@
 import { RegisterOrgUseCaseRequest } from '@/use-cases/orgs/register'
 
 export const adoptOrgMock: RegisterOrgUseCaseRequest = {
-  address: 'Alfredo Mallue',
+  address: 'AlpetFredMocko Mallue',
   email: 'adoptorg@gmail.com',
   name: 'Adopt Org',
   password: '1234',

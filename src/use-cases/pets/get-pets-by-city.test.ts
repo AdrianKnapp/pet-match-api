@@ -1,7 +1,7 @@
 import { InMemoryPetsRepository } from '../../repositories/in-memory/pets-repository'
 import { describe, it, beforeEach, expect } from 'vitest'
 import { GetPetsByCityUseCase } from './get-pets-by-city'
-import { fred } from '@/utils/mocks/pets'
+import { petFredMock } from '@/utils/mocks/pets'
 
 let petsRepository: InMemoryPetsRepository
 let sut: GetPetsByCityUseCase
@@ -14,7 +14,7 @@ describe('Create Pets By City Use Case', () => {
 
   it('should be able to get pets by city', async () => {
     await petsRepository.create({
-      ...fred,
+      ...petFredMock,
       city: 'São Paulo',
     })
 
@@ -30,7 +30,7 @@ describe('Create Pets By City Use Case', () => {
   })
 
   it('should not be able to get pets by unregistered city', async () => {
-    await petsRepository.create(fred)
+    await petsRepository.create(petFredMock)
 
     const { pets } = await sut.execute({
       city: 'São Paulo',
