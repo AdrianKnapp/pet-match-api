@@ -2,10 +2,10 @@
 Find your friend.
 
 ## FRs (Functional requirements)
-- [ ] Should be able to register a pet.
-- [ ] Should be able to list every pet able to be adopted in a city.
-- [ ] Should be able to filter pets by their characteristics.
-- [ ] Should be able to view details of a pet for adoption.
+- [X] Should be able to register a pet.
+- [X] Should be able to list every pet able to be adopted in a city.
+- [X] Should be able to filter pets by their characteristics.
+- [X] Should be able to view details of a pet for adoption.
 - [ ] Should be able to register as an organization.
 - [ ] Should be able to login as an organization.
 
