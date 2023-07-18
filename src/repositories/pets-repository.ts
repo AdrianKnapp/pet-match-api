@@ -1,10 +1,5 @@
 import { Pet, Prisma } from '@prisma/client'
 
-export interface GetPetsByCityParams {
-  latitude: number
-  longitude: number
-}
-
 export interface GetPetsQuery {
   type?: Pet['type']
   age?: Pet['age']
@@ -17,7 +12,7 @@ export interface GetPetsQuery {
 
 export interface PetsRepository {
   create(data: Prisma.PetUncheckedCreateInput): Promise<Pet>
-  getPetsByCity(params: GetPetsByCityParams): Promise<Pet[]>
+  getPetsByCity(city: string): Promise<Pet[]>
   getPets(query: GetPetsQuery): Promise<Pet[]>
   getPetById(petId: string): Promise<Pet | null>
 }

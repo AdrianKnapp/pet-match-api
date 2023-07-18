@@ -1,9 +1,5 @@
 import { Prisma, Pet } from '@prisma/client'
-import {
-  GetPetsByCityParams,
-  GetPetsQuery,
-  PetsRepository,
-} from '../pets-repository'
+import { GetPetsQuery, PetsRepository } from '../pets-repository'
 import { randomUUID } from 'crypto'
 
 export class InMemoryPetsRepository implements PetsRepository {
@@ -17,6 +13,7 @@ export class InMemoryPetsRepository implements PetsRepository {
       images: data.images as string[],
       requisites: data.requisites as string[],
       type: data.type,
+      city: data.city,
       age: data.age,
       size: data.size,
       energy: data.energy,
@@ -32,8 +29,10 @@ export class InMemoryPetsRepository implements PetsRepository {
     return pet
   }
 
-  async getPetsByCity(params: GetPetsByCityParams) {
-    return this.pets
+  async getPetsByCity(city: string) {
+    const pets = this.pets.filter((pet) => pet.city.includes(city))
+
+    return pets
   }
 
   async getPets(petsQuery: GetPetsQuery) {

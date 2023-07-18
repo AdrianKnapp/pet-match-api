@@ -4,6 +4,7 @@ export const fred: CreatePetUseCaseRequest = {
   name: 'Fred',
   description: 'Tall and strong.',
   age: 'senior',
+  city: 'Pelotas',
   energy: 'high',
   size: 'large',
   environment: 'medium',
