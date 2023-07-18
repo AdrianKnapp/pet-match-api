@@ -1,6 +1,7 @@
 import { InMemoryPetsRepository } from '../../repositories/in-memory/pets-repository'
 import { describe, it, beforeEach, expect } from 'vitest'
 import { GetPetsByCityUseCase } from './get-pets-by-city'
+import { fred } from '@/utils/mocks/pets'
 
 let petsRepository: InMemoryPetsRepository
 let sut: GetPetsByCityUseCase
@@ -12,11 +13,29 @@ describe('Create Pets By City Use Case', () => {
   })
 
   it('should be able to get pets by city', async () => {
-    const pet = await sut.execute({
-      latitude: -31.7718528,
-      longitude: -52.314112,
+    await petsRepository.create({
+      ...fred,
+      city: 'São Paulo',
     })
 
-    expect(pet).toBeDefined()
+    const { pets } = await sut.execute({
+      city: 'São Pa',
+    })
+
+    expect(pets).toEqual([
+      expect.objectContaining({
+        city: 'São Paulo',
+      }),
+    ])
+  })
+
+  it('should not be able to get pets by unregistered city', async () => {
+    await petsRepository.create(fred)
+
+    const { pets } = await sut.execute({
+      city: 'São Paulo',
+    })
+
+    expect(pets).toEqual([])
   })
 })
