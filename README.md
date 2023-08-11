@@ -20,5 +20,5 @@ Find your friend.
 ## NFR (Non-functional requirements)
 - [X] The organizations password should be encrypted.
 - [X] The data should be stored in a PostgreSQL database.
-- [ ] Every data list should be paginated with 20 items per page.
+- [X] Every data list should be paginated with 20 items per page.
 - [ ] The organization should be identified by a JWT token.
