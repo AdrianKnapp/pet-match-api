@@ -3,8 +3,10 @@ lockfileVersion: 5.4
 specifiers:
   '@prisma/client': 4.16.2
   '@rocketseat/eslint-config': ^1.3.0
+  '@types/bcryptjs': ^2.4.2
   '@types/node': ^20.4.2
   '@types/supertest': ^2.0.12
+  bcryptjs: ^2.4.3
   dotenv: ^16.3.1
   eslint: ^8.45.0
   fastify: ^4.19.2
@@ -19,6 +21,8 @@ specifiers:
 
 dependencies:
   '@prisma/client': 4.16.2_prisma@4.16.2
+  '@types/bcryptjs': 2.4.2
+  bcryptjs: 2.4.3
   fastify: 4.19.2
   zod: 3.21.4
 
@@ -668,6 +672,10 @@ packages:
     resolution: {integrity: sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==}
     dev: true
 
+  /@types/bcryptjs/2.4.2:
+    resolution: {integrity: sha512-LiMQ6EOPob/4yUL66SZzu6Yh77cbzJFYll+ZfaPiPPFswtIlA/Fs1MzdKYA7JApHU49zQTbJGX3PDmCpIdDBRQ==}
+    dev: false
+
   /@types/chai-subset/1.3.3:
     resolution: {integrity: sha512-frBecisrNGz+F4T6bcc+NLeolfiojh5FxW2klu669+8BARtyQv2C/GkNW6FUodVe4BroGMP/wER/YDGc7rEllw==}
     dependencies:
@@ -1089,6 +1097,10 @@ packages:
 
   /base64-js/1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
+    dev: false
+
+  /bcryptjs/2.4.3:
+    resolution: {integrity: sha512-V/Hy/X9Vt7f3BbPJEi8BdVFMByHi+jNXrYkW3huaybV/kQ0KJg0Y6PkEMbn+zeT+i+SiKZ/HMqJGIIt4LZDqNQ==}
     dev: false
 
   /brace-expansion/1.1.11:
