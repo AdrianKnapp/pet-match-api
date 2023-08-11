@@ -25,6 +25,7 @@ describe('Get Pets Use Case', () => {
 
     const { pets } = await sut.execute({
       age: 'baby',
+      city: 'Pelotas',
     })
 
     expect(pets).toEqual([
@@ -32,5 +33,23 @@ describe('Get Pets Use Case', () => {
         age: 'baby',
       }),
     ])
+  })
+
+  it('should be able to get pets on a specific city', async () => {
+    await petsRepository.create(petFredMock)
+    await petsRepository.create({
+      ...petFredMock,
+      city: 'Porto Alegre',
+    })
+    await petsRepository.create({
+      ...petFredMock,
+      city: 'Porto Alegre',
+    })
+
+    const { pets } = await sut.execute({
+      city: 'Porto',
+    })
+
+    expect(pets).length(2)
   })
 })

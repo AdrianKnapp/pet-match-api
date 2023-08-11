@@ -9,6 +9,7 @@ export interface GetPetsUseCaseRequest {
   environment?: 'small' | 'medium' | 'large'
   type?: 'dog' | 'cat' | 'other'
   orgId?: string
+  city: string
 }
 
 interface GetPetsUseCaseResponse {
@@ -26,6 +27,7 @@ export class GetPetsUseCase {
     environment,
     type,
     orgId,
+    city,
   }: GetPetsUseCaseRequest): Promise<GetPetsUseCaseResponse> {
     const pets = await this.petsRepository.getPets({
       age,
@@ -35,6 +37,7 @@ export class GetPetsUseCase {
       environment,
       type,
       orgId,
+      city,
     })
 
     return {

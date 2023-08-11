@@ -29,12 +29,6 @@ export class InMemoryPetsRepository implements PetsRepository {
     return pet
   }
 
-  async getPetsByCity(city: string) {
-    const pets = this.pets.filter((pet) => pet.city.includes(city))
-
-    return pets
-  }
-
   async getPets(petsQuery: GetPetsQuery) {
     const petsFiltered = this.pets.filter((pet) => {
       if (petsQuery.type && petsQuery.type !== pet.type) {
@@ -50,6 +44,10 @@ export class InMemoryPetsRepository implements PetsRepository {
       }
 
       if (petsQuery.energy && petsQuery.energy !== pet.energy) {
+        return false
+      }
+
+      if (petsQuery.city && !pet.city.includes(petsQuery.city)) {
         return false
       }
 
