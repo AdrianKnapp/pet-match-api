@@ -1,6 +1,7 @@
 import { Prisma, Pet } from '@prisma/client'
 import { GetPetsQuery, PetsRepository } from '../pets-repository'
 import { randomUUID } from 'crypto'
+import paginate from '@/utils/paginate'
 
 export class InMemoryPetsRepository implements PetsRepository {
   public pets: Pet[] = []
@@ -29,7 +30,13 @@ export class InMemoryPetsRepository implements PetsRepository {
     return pet
   }
 
-  async getPets(petsQuery: GetPetsQuery) {
+  async getPetById(petId: string) {
+    const pet = this.pets.find((pet) => pet.id === petId)
+
+    return pet ?? null
+  }
+
+  async getPets(petsQuery: GetPetsQuery, page = 1) {
     const petsFiltered = this.pets.filter((pet) => {
       if (petsQuery.type && petsQuery.type !== pet.type) {
         return false
@@ -69,12 +76,6 @@ export class InMemoryPetsRepository implements PetsRepository {
       return true
     })
 
-    return petsFiltered
-  }
-
-  async getPetById(petId: string) {
-    const pet = this.pets.find((pet) => pet.id === petId)
-
-    return pet || null
+    return paginate<Pet>(petsFiltered, page)
   }
 }
