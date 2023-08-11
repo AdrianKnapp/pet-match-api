@@ -6,8 +6,8 @@ Find your friend.
 - [X] Should be able to list every pet able to be adopted in a city.
 - [X] Should be able to filter pets by their characteristics.
 - [X] Should be able to view details of a pet for adoption.
-- [ ] Should be able to register as an organization.
-- [ ] Should be able to login as an organization.
+- [X] Should be able to register as an organization.
+- [X] Should be able to login as an organization.
 
 ## BRs (Business rules)
 - [ ] To list pets, the city should be provided.
