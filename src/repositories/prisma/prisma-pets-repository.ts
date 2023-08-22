@@ -1,7 +1,6 @@
-import { Age, Energy, Independency, Prisma, Size, Type } from '@prisma/client'
+import { Prisma } from '@prisma/client'
 import { prisma } from '@/lib/prisma'
 import { GetPetsQuery, PetsRepository } from '../pets-repository'
-import { GetResult } from '@prisma/client/runtime'
 
 export class PrismaPetsRepository implements PetsRepository {
   getPetById(petId: string) {
