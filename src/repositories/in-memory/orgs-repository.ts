@@ -1,7 +1,6 @@
 import { Org, Prisma } from '@prisma/client'
 import { OrgsRepository } from '../orgs-repository'
 import { randomUUID } from 'crypto'
-import { GetResult } from '@prisma/client/runtime'
 
 export class InMemoryOrgsRepository implements OrgsRepository {
   public orgs: Org[] = []
@@ -23,8 +22,14 @@ export class InMemoryOrgsRepository implements OrgsRepository {
     return org
   }
 
-  async findByEmail(email: string) {
+  async getByEmail(email: string) {
     const org = this.orgs.find((org) => org.email === email)
+
+    return org ?? null
+  }
+
+  async getById(orgId: string) {
+    const org = this.orgs.find((org) => org.id === orgId)
 
     return org ?? null
   }

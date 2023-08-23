@@ -1,6 +1,7 @@
 import { Prisma } from '@prisma/client'
 import { prisma } from '@/lib/prisma'
 import { GetPetsQuery, PetsRepository } from '../pets-repository'
+import { randomUUID } from 'crypto'
 
 export class PrismaPetsRepository implements PetsRepository {
   getPetById(petId: string) {
@@ -34,7 +35,10 @@ export class PrismaPetsRepository implements PetsRepository {
 
   async create(data: Prisma.PetUncheckedCreateInput) {
     const pet = await prisma.pet.create({
-      data,
+      data: {
+        id: randomUUID(),
+        ...data,
+      },
     })
 
     return pet
