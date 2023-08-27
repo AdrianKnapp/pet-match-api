@@ -1,5 +1,6 @@
 import { PetsRepository } from '@/repositories/pets-repository'
 import { Pet } from '@prisma/client'
+import { CityQueryParamIsRequiredError } from '../errors/city-query-param-is-required-error'
 
 export interface GetPetsUseCaseRequest {
   age?: 'baby' | 'young' | 'adult' | 'senior'
@@ -9,7 +10,7 @@ export interface GetPetsUseCaseRequest {
   environment?: 'small' | 'medium' | 'large'
   type?: 'dog' | 'cat' | 'other'
   orgId?: string
-  city: string
+  city?: string
 }
 
 interface GetPetsUseCaseResponse {
@@ -29,6 +30,10 @@ export class GetPetsUseCase {
     orgId,
     city,
   }: GetPetsUseCaseRequest): Promise<GetPetsUseCaseResponse> {
+    if (!city) {
+      throw new CityQueryParamIsRequiredError()
+    }
+
     const pets = await this.petsRepository.getPets({
       age,
       size,
