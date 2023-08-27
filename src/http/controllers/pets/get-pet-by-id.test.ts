@@ -1,7 +1,6 @@
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 import request from 'supertest'
 import { app } from '@/app'
-import registerOrg from '@/utils/tests/register-org'
 import createPet from '@/utils/tests/create-pet'
 
 describe('Get pet by id (e2e)', () => {

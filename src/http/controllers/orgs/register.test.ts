@@ -1,5 +1,4 @@
-import { afterAll, beforeAll, describe, expect, it } from 'vitest'
-import request from 'supertest'
+import { afterAll, beforeAll, describe, it } from 'vitest'
 import { app } from '@/app'
 import registerOrg from '@/utils/tests/register-org'
 
