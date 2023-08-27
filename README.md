@@ -15,10 +15,10 @@ Find your friend.
 - [X] A pet should be linked to an organization.
 - [X] The user that wants to adopt a pet, should get in contact with the organization by his WhatsApp number.
 - [X] Every filter, expect the city, is optional.
-- [ ] For an organization to access the app as an ADMIN, they should be logged in.
+- [X] For an organization to access the app as an ADMIN, they should be logged in.
 
 ## NFR (Non-functional requirements)
 - [X] The organizations password should be encrypted.
 - [X] The data should be stored in a PostgreSQL database.
 - [X] Every data list should be paginated with 20 items per page.
-- [ ] The organization should be identified by a JWT token.
+- [X] The organization should be identified by a JWT token.
