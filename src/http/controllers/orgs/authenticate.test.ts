@@ -2,7 +2,7 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 import request from 'supertest'
 import { app } from '@/app'
 
-describe('Authenticate (e2e)', () => {
+describe('Authenticate org (e2e)', () => {
   beforeAll(async () => {
     await app.ready()
   })
@@ -25,7 +25,6 @@ describe('Authenticate (e2e)', () => {
       email: 'test@gmail.com',
       password: 'test123',
     })
-    console.log("🚀 ~ file: authenticate.test.ts:28 ~ response ~ response:", response)
 
     expect(response.statusCode).toEqual(200)
     // expect(response.body).toEqual({
