@@ -11,7 +11,7 @@ describe('Create pet (e2e)', () => {
     await app.close()
   })
 
-  it('should be able create a pet', async () => {
+  it('should be able to create a pet', async () => {
     await createPet()
   })
 })

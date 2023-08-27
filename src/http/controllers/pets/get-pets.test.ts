@@ -3,7 +3,7 @@ import request from 'supertest'
 import { app } from '@/app'
 import createPet from '@/utils/tests/create-pet'
 
-describe('Get pet by id (e2e)', () => {
+describe('Get pets (e2e)', () => {
   beforeAll(async () => {
     await app.ready()
   })
@@ -12,12 +12,12 @@ describe('Get pet by id (e2e)', () => {
     await app.close()
   })
 
-  it('should be able to get a pet by his ID', async () => {
+  it('should be able to get pets', async () => {
     const {
-      pet: { id },
+      pet: { city },
     } = await createPet()
 
-    const response = await request(app.server).get(`/pets/${id}`)
+    const response = await request(app.server).get(`/pets?city=${city}`)
 
     expect(response.statusCode).toEqual(200)
   })
