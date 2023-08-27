@@ -1,16 +1,16 @@
 import { CreatePetUseCaseRequest } from '@/use-cases/pets/create'
 
-export const petFredMock: CreatePetUseCaseRequest = {
-  name: 'petFredMock',
-  description: 'Tall and strong.',
-  age: 'senior',
+export const petMock: CreatePetUseCaseRequest = {
+  name: 'Violeta',
   city: 'Pelotas',
-  energy: 'high',
-  size: 'large',
-  environment: 'medium',
-  type: 'dog',
-  images: [''],
-  independency: 'high',
-  requisites: [''],
+  description: 'Mansa e tranquila.',
   org_id: '',
+  images: [],
+  requisites: ['Espaço amplo.'],
+  age: 'adult',
+  energy: 'medium',
+  environment: 'medium',
+  independency: 'high',
+  size: 'medium',
+  type: 'dog',
 }

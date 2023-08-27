@@ -13,9 +13,9 @@ export async function authenticate(
 
   const { email, password } = authenticateOrgBodySchema.parse(request.body)
 
-  const checkInUseCase = makeAuthenticateUseCase()
+  const authenticateUseCase = makeAuthenticateUseCase()
 
-  await checkInUseCase.execute({
+  await authenticateUseCase.execute({
     email,
     password,
   })

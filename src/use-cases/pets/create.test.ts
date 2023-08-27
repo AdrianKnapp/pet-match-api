@@ -1,7 +1,7 @@
 import { InMemoryPetsRepository } from '../../repositories/in-memory/pets-repository'
 import { describe, it, beforeEach, expect } from 'vitest'
 import { CreatePetUseCase } from './create'
-import { petFredMock } from '@/utils/mocks/pets'
+import { petMock } from '@/utils/mocks/pets'
 import { InMemoryOrgsRepository } from '@/repositories/in-memory/orgs-repository'
 
 let petsRepository: InMemoryPetsRepository
@@ -16,8 +16,8 @@ describe('Create Pet Use Case', () => {
   })
 
   it('should be able to create a pet', async () => {
-    const { pet } = await sut.execute(petFredMock)
+    const { pet } = await sut.execute(petMock)
 
-    expect(pet.name).toEqual(petFredMock.name)
+    expect(pet.name).toEqual(petMock.name)
   })
 })

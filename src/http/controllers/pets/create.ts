@@ -22,11 +22,11 @@ export async function create(request: FastifyRequest, reply: FastifyReply) {
   const pet = createPetBodySchema.parse(request.body)
 
   try {
-    const checkInUseCase = makeCreatePetUseCase()
+    const createPetUseCase = makeCreatePetUseCase()
 
-    const petCreated = await checkInUseCase.execute(pet)
+    const petCreated = await createPetUseCase.execute(pet)
 
-    return reply.status(200).send(petCreated)
+    return reply.status(201).send(petCreated)
   } catch (err) {
     if (err instanceof OrgDoesNotExistsError) {
       return reply.status(400).send({

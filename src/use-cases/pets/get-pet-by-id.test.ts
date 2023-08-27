@@ -1,7 +1,7 @@
 import { InMemoryPetsRepository } from '../../repositories/in-memory/pets-repository'
 import { describe, it, beforeEach, expect } from 'vitest'
 import { GetPetByIdUseCase } from './get-pet-by-id'
-import { petFredMock } from '@/utils/mocks/pets'
+import { petMock } from '@/utils/mocks/pets'
 import { ResourceNotFoundError } from '../errors/resource-not-found-error'
 
 let petsRepository: InMemoryPetsRepository
@@ -14,13 +14,13 @@ describe('Create Pet By Id Use Case', () => {
   })
 
   it('should be able to get a pet by id', async () => {
-    const petCreated = await petsRepository.create(petFredMock)
+    const petCreated = await petsRepository.create(petMock)
 
     const { pet } = await sut.execute({
       petId: petCreated.id,
     })
 
-    expect(pet.name).toEqual(petFredMock.name)
+    expect(pet.name).toEqual(petMock.name)
   })
 
   it('should not be able to get pet with wrong city', async () => {

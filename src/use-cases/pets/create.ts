@@ -18,7 +18,7 @@ export interface CreatePetUseCaseRequest {
   org_id: string
 }
 
-interface CreatePetUseCaseResponse {
+export interface CreatePetUseCaseResponse {
   pet: Pet
 }
 
